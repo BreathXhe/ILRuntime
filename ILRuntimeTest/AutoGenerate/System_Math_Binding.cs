@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -19,7 +20,6 @@ namespace ILRuntime.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(System.Math);
             args = new Type[]{typeof(System.Double), typeof(System.Double)};
@@ -38,12 +38,15 @@ namespace ILRuntime.Runtime.Generated
             ILRuntime.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
             StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 2);
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
-            System.Double y = *(double*)&ptr_of_this_method->Value;
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
-            System.Double x = *(double*)&ptr_of_this_method->Value;
 
-            var result_of_this_method = System.Math.Pow(x, y);
+            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
+            System.Double @y = *(double*)&ptr_of_this_method->Value;
+
+            ptr_of_this_method = ILIntepreter.Minus(__esp, 2);
+            System.Double @x = *(double*)&ptr_of_this_method->Value;
+
+
+            var result_of_this_method = System.Math.Pow(@x, @y);
 
             __ret->ObjectType = ObjectTypes.Double;
             *(double*)&__ret->Value = result_of_this_method;
@@ -55,10 +58,12 @@ namespace ILRuntime.Runtime.Generated
             ILRuntime.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
             StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 1);
-            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
-            System.Double d = *(double*)&ptr_of_this_method->Value;
 
-            var result_of_this_method = System.Math.Sqrt(d);
+            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
+            System.Double @d = *(double*)&ptr_of_this_method->Value;
+
+
+            var result_of_this_method = System.Math.Sqrt(@d);
 
             __ret->ObjectType = ObjectTypes.Double;
             *(double*)&__ret->Value = result_of_this_method;
